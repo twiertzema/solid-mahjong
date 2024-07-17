@@ -29,11 +29,9 @@ export const GameStateProvider: ParentComponent = (props) => {
 	});
 
 	const init = () => {
-		console.log("init");
 		const shuffled = shuffle(MahjongDeck);
 		const wall = shuffled.slice(0, MahjongDeck.length - 14);
 		const deadWall = shuffled.slice(MahjongDeck.length - 14);
-		console.log(wall, deadWall);
 
 		setStore({
 			deadWall,
