@@ -1,5 +1,5 @@
 import type { SetStoreFunction } from "solid-js/store";
-import type { GameState } from "./types";
+import { GamePhase, type GameState } from "./types";
 import { shuffle } from "lodash";
 import { MahjongDeck } from "../constants/tiles";
 
@@ -11,6 +11,7 @@ export default function createInit(setStore: SetStoreFunction<GameState>) {
 
     setStore({
       deadWall,
+      phase: GamePhase.Init,
       wall,
     });
   };
