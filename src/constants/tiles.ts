@@ -15,32 +15,55 @@ export const MahjongHonorType: Record<MahjongHonor, string[]> = {
   [MahjongHonor.Winds]: ["east", "north", "south", "west"],
 };
 
-export class MahjongSuitTile<Suit extends MahjongSuit = MahjongSuit> {
+export abstract class MahjongTile {
+  abstract readonly genus: string;
+  abstract readonly species: string;
+
+  toString() {
+    return `${this.genus} of ${capitalize(this.species)}`;
+  }
+}
+
+export class MahjongSuitTile<Suit extends MahjongSuit = MahjongSuit>
+  implements MahjongTile
+{
   constructor(
     readonly suit: Suit,
     readonly rank: number,
   ) {}
 
-  toString() {
-    return `${this.rank} of ${capitalize(this.suit)}`;
+  get genus() {
+    return this.suit;
+  }
+
+  get species() {
+    return this.rank.toString();
   }
 }
 
-export class MahjongHonorTile<Honor extends MahjongHonor = MahjongHonor> {
+export class MahjongHonorTile<Honor extends MahjongHonor = MahjongHonor>
+  implements MahjongTile
+{
   constructor(
     readonly honor: Honor,
     readonly type: string,
   ) {}
 
-  toString() {
-    return `${capitalize(this.type)} of ${capitalize(this.honor)}`;
+  get species() {
+    return this.type;
+  }
+
+  get genus() {
+    return this.honor;
   }
 }
 
-export type MahjongTile = MahjongSuitTile | MahjongHonorTile;
-
 export function isSuitTile(tile: MahjongTile): tile is MahjongSuitTile {
-  return Object.hasOwn(tile, "suit");
+  return tile instanceof MahjongSuitTile;
+}
+
+export function isHonorTile(tile: MahjongTile): tile is MahjongHonorTile {
+  return tile instanceof MahjongHonorTile;
 }
 
 export const MahjongDeck: MahjongTile[] = [];
