@@ -1,7 +1,11 @@
 .tile {
   height: 130px;
   width: 100px;
-  border: 1px solid black;
-  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 8px solid black;
+  border-radius: 8px;
   padding: 8px;
 }

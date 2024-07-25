@@ -1,7 +1,7 @@
 import type { Component } from "solid-js";
+import { capitalize } from "lodash";
 import type { MahjongTile } from "constants/tiles";
 import "./styles.css";
-import { capitalize } from "lodash";
 
 export interface TileProps {
   tile: MahjongTile;
