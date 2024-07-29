@@ -21,6 +21,7 @@
     "@storybook/blocks": "^8.2.5",
     "@storybook/builder-vite": "^8.2.5",
     "@storybook/docs-tools": "^8.2.6",
+    "@storybook/test": "^8.2.6",
     "@storybook/testing-library": "^0.2.2",
     "@types/lodash": "^4.17.6",
     "happy-dom": "^14.12.3",
