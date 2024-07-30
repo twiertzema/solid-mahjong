@@ -3,3 +3,7 @@
   flex-direction: row;
   gap: 16px;
 }
+
+.tile {
+  cursor: pointer;
+}

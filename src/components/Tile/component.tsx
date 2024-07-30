@@ -1,17 +1,30 @@
-import type { Component, JSX } from "solid-js";
+import { Show, type Component, type JSX } from "solid-js";
 import { capitalize } from "lodash";
 import type { MahjongTile } from "constants/tiles";
 import styles from "./styles.module.css";
+import { defaultProps } from "utils/solid";
 
 export interface TileProps extends JSX.HTMLAttributes<HTMLDivElement> {
+  concealed: boolean;
   tile: MahjongTile;
 }
 
-const Tile: Component<TileProps> = ({ tile, ...props }) => {
+const Tile: Component<TileProps> = (props) => {
+  const mergedProps = defaultProps({ concealed: false }, props);
+
   return (
-    <div {...props} class={styles.tile}>
-      <p>{capitalize(tile.genus)}</p>
-      <p>{capitalize(tile.species)}</p>
+    <div
+      classList={{
+        ...(mergedProps.class && { [mergedProps.class]: true }),
+        [styles.tile]: true,
+        [styles.concealed]: mergedProps.concealed,
+      }}
+      onClick={mergedProps.onClick}
+    >
+      <Show when={!mergedProps.concealed}>
+        <p>{capitalize(mergedProps.tile.genus)}</p>
+        <p>{capitalize(mergedProps.tile.species)}</p>
+      </Show>
     </div>
   );
 };

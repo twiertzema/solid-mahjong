@@ -12,6 +12,9 @@
   "linter": {
     "enabled": true,
     "rules": {
+      "a11y": {
+        "useKeyWithClickEvents": "off"
+      },
       "correctness": {
         "noUnusedImports": {
           "fix": "safe",

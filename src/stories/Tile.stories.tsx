@@ -11,6 +11,12 @@ const meta = {
   title: "Tile",
   component: Tile,
   tags: ["autodocs"],
+  args: {
+    concealed: false,
+  },
+  argTypes: {
+    concealed: { control: "boolean" },
+  },
 } satisfies Meta<typeof Tile>;
 
 export default meta;

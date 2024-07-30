@@ -6,6 +6,12 @@ import { fn } from "@storybook/test";
 const meta = {
   title: "TilePicker",
   component: TilePicker,
+  args: {
+    concealed: true,
+  },
+  argTypes: {
+    concealed: { control: "boolean" },
+  },
 } satisfies Meta<typeof TilePicker>;
 
 export default meta;

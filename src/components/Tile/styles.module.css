@@ -8,4 +8,9 @@
   border: 8px solid black;
   border-radius: 8px;
   padding: 8px;
+  background-color: beige;
+}
+
+.concealed {
+  background-color: green;
 }
