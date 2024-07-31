@@ -6,13 +6,16 @@ export enum MahjongSuit {
   Circles = "circles",
 }
 
+export type MahjongWind = "east" | "north" | "south" | "west";
+export const MahjongWinds: MahjongWind[] = ["east", "north", "south", "west"];
+
 export enum MahjongHonor {
   Dragons = "dragons",
   Winds = "winds",
 }
 export const MahjongHonorType: Record<MahjongHonor, string[]> = {
   [MahjongHonor.Dragons]: ["green", "red", "white"],
-  [MahjongHonor.Winds]: ["east", "north", "south", "west"],
+  [MahjongHonor.Winds]: ["east", "north", "south", "west"] as MahjongWind[],
 };
 
 export abstract class MahjongTile {

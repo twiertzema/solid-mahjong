@@ -11,16 +11,26 @@ export const GameStateContext = createContext<{
     throw new Error("not implemented");
   },
   state: {
+    currentTurn: {
+      round: 0,
+      wind: "east",
+    },
     deadWall: [],
     phase: GamePhase.Init,
+    players: [],
     wall: [],
   },
 });
 
 export const GameStateProvider: ParentComponent = (props) => {
   const [store, setStore] = createStore<GameState>({
+    currentTurn: {
+      round: 0,
+      wind: "east",
+    },
     deadWall: [],
     phase: GamePhase.Init,
+    players: [],
     wall: [],
   });
 
