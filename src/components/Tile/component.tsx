@@ -5,7 +5,7 @@ import styles from "./styles.module.css";
 import { defaultProps } from "utils/solid";
 
 export interface TileProps extends JSX.HTMLAttributes<HTMLDivElement> {
-  concealed: boolean;
+  concealed?: boolean;
   tile: MahjongTile;
 }
 
@@ -16,6 +16,7 @@ const Tile: Component<TileProps> = (props) => {
     <div
       classList={{
         ...(mergedProps.class && { [mergedProps.class]: true }),
+        ...mergedProps.classList,
         [styles.tile]: true,
         [styles.concealed]: mergedProps.concealed,
       }}

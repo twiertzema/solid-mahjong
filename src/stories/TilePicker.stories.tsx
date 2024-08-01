@@ -8,9 +8,7 @@ const meta = {
   component: TilePicker,
   args: {
     concealed: true,
-  },
-  argTypes: {
-    concealed: { control: "boolean" },
+    disabled: false,
   },
 } satisfies Meta<typeof TilePicker>;
 
