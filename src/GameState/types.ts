@@ -17,8 +17,8 @@ export interface PlayerState {
 export interface GameState {
   // TODO: Players' state.
   currentTurn: {
-    // The round of the wind in the case that East wins a hand and gets a repeat.
-    round: number;
+    // Streak counter in the case that East wins a hand and gets a repeat.
+    streakCounter: number;
     // The current wind.
     wind: MahjongWind;
   };

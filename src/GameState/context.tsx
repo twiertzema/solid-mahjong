@@ -12,7 +12,7 @@ export const GameStateContext = createContext<{
   },
   state: {
     currentTurn: {
-      round: 0,
+      streakCounter: 0,
       wind: "east",
     },
     deadWall: [],
@@ -25,7 +25,7 @@ export const GameStateContext = createContext<{
 export const GameStateProvider: ParentComponent = (props) => {
   const [store, setStore] = createStore<GameState>({
     currentTurn: {
-      round: 0,
+      streakCounter: 0,
       wind: "east",
     },
     deadWall: [],

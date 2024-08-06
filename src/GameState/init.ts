@@ -11,7 +11,7 @@ export default function createInit(setStore: SetStoreFunction<GameState>) {
 
     setStore({
       currentTurn: {
-        round: 0,
+        streakCounter: 0,
         wind: "east",
       },
       deadWall,
