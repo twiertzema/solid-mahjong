@@ -7,3 +7,6 @@
 .tile--selectable {
   cursor: pointer;
 }
+.tile--selectable:hover {
+  border-color: red;
+}
