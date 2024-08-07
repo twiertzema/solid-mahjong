@@ -16,10 +16,10 @@ export default function createInit(setStore: SetStoreFunction<GameState>) {
       },
       deadWall,
       phase: GamePhase.Init,
-      players: MahjongWinds.map((wind) => ({
+      players: MahjongWinds.map(() => ({
         hand: [],
         score: 25000,
-        wind,
+        // Wind will be set when turn order is determined.
       })),
       wall,
     });

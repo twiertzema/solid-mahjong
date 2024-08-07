@@ -11,7 +11,7 @@ export enum GamePhase {
 export interface PlayerState {
   hand: MahjongTile[];
   score: number;
-  wind: MahjongWind;
+  wind?: MahjongWind;
 }
 
 export interface GameState {

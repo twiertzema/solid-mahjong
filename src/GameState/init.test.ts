@@ -43,3 +43,14 @@ test("initializes the correct number of players", () => {
   const { players } = mockSetStore.mock.calls[0][0];
   expect(players).toHaveLength(4);
 });
+
+test("doesn't set the wind on the players yet", () => {
+  const mockSetStore = setUp();
+
+  expect(mockSetStore).toHaveBeenCalled();
+
+  const { players } = mockSetStore.mock.calls[0][0];
+  for (const player of players) {
+    expect(player.wind).toBeUndefined();
+  }
+});
