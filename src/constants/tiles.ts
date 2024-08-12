@@ -7,7 +7,7 @@ export enum MahjongSuit {
 }
 
 export type MahjongWind = "east" | "north" | "south" | "west";
-export const MahjongWinds: MahjongWind[] = ["east", "north", "south", "west"];
+export const MahjongWinds: MahjongWind[] = ["east", "north", "west", "south"];
 
 export enum MahjongHonor {
   Dragons = "dragons",
