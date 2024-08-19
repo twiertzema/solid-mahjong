@@ -1,56 +1,45 @@
-import { expect, test, vi } from "vitest";
+import { expect, test } from "vitest";
 import createInit from "./init";
-import { GamePhase } from "./types";
+import { GamePhase, type GameState } from "./types";
+import { createRoot } from "solid-js";
+import createGameStateStore from "./createGameStateStore";
 
-function setUp() {
-  const mockSetStore = vi.fn();
+function run(testFunc: (store: GameState) => void) {
+  createRoot((dispose) => {
+    const [store, setStore] = createGameStateStore();
 
-  const init = createInit(mockSetStore);
-  init();
+    const init = createInit(setStore);
+    init();
 
-  return mockSetStore;
+    testFunc(store);
+
+    dispose();
+  });
 }
 
 test("initializes the wall and dead wall appropriately", () => {
-  const mockSetStore = setUp();
-
-  expect(mockSetStore).toHaveBeenCalledWith(
-    expect.objectContaining({
-      deadWall: expect.any(Array),
-      wall: expect.any(Array),
-    }),
-  );
-
-  const { deadWall, wall } = mockSetStore.mock.calls[0][0];
-  expect(wall).toHaveLength(122);
-  expect(deadWall).toHaveLength(14);
+  run((store) => {
+    expect(store.wall).toHaveLength(122);
+    expect(store.deadWall).toHaveLength(14);
+  });
 });
 
 test("initializes the game phase", () => {
-  const mockSetStore = setUp();
-
-  expect(mockSetStore).toHaveBeenCalled();
-
-  const { phase } = mockSetStore.mock.calls[0][0];
-  expect(phase).toEqual(GamePhase.Init);
+  run((store) => {
+    expect(store.phase).toEqual(GamePhase.Init);
+  });
 });
 
 test("initializes the correct number of players", () => {
-  const mockSetStore = setUp();
-
-  expect(mockSetStore).toHaveBeenCalled();
-
-  const { players } = mockSetStore.mock.calls[0][0];
-  expect(players).toHaveLength(4);
+  run((store) => {
+    expect(store.phase).toHaveLength(4);
+  });
 });
 
 test("doesn't set the wind on the players yet", () => {
-  const mockSetStore = setUp();
-
-  expect(mockSetStore).toHaveBeenCalled();
-
-  const { players } = mockSetStore.mock.calls[0][0];
-  for (const player of players) {
-    expect(player.wind).toBeUndefined();
-  }
+  run((store) => {
+    for (const player of store.players) {
+      expect(player.wind).toBeUndefined();
+    }
+  });
 });
