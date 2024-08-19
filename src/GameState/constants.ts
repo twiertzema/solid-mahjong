@@ -1,6 +1,6 @@
 import { type GameState, GamePhase } from "./types";
 
-export const INIT_STATE: GameState = {
+export const DEFAULT_STATE: GameState = {
   currentTurn: {
     streakCounter: 0,
     wind: "east",
