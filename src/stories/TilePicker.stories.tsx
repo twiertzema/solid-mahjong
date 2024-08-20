@@ -20,9 +20,9 @@ export const TilePickerStory: Story = {
     onPick: fn(),
     tiles: [
       new MahjongHonorTile(MahjongHonor.Winds, "east"),
-      new MahjongHonorTile(MahjongHonor.Winds, "north"),
-      new MahjongHonorTile(MahjongHonor.Winds, "west"),
       new MahjongHonorTile(MahjongHonor.Winds, "south"),
+      new MahjongHonorTile(MahjongHonor.Winds, "west"),
+      new MahjongHonorTile(MahjongHonor.Winds, "north"),
     ],
   },
 };

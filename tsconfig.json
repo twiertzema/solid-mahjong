@@ -12,5 +12,6 @@
     "types": ["vite/client"],
     "noEmit": true,
     "isolatedModules": true
-  }
+  },
+  "include": ["src/**/*", ".storybook/**/*"]
 }
