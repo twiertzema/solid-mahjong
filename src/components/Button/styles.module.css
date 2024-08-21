@@ -1,0 +1,18 @@
+.button {
+  cursor: pointer;
+}
+
+.small {
+  padding: 8px;
+}
+
+.medium {
+  padding: 16px;
+  width: 8rem;
+}
+
+.large {
+  padding: 24px;
+  width: 12rem;
+  font-size: 1.2em;
+}

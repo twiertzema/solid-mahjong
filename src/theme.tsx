@@ -1,12 +1,25 @@
-import { createContext, type ParentComponent, useContext } from "solid-js";
+import {
+  createContext,
+  type JSX,
+  type ParentComponent,
+  useContext,
+} from "solid-js";
 
 const DEFAULT_THEME = {
   colors: {
     tile: {
       background: "beige",
       border: "black",
-      color: "black",
       concealed: "green",
+      typography: "black",
+    },
+  },
+  components: {
+    tile: {
+      style: {
+        border: "8px solid",
+        "border-radius": "8px",
+      } as JSX.CSSProperties,
     },
   },
 } as const;

@@ -23,11 +23,12 @@ const Tile: Component<TileProps> = (props) => {
       }}
       onClick={mergedProps.onClick}
       style={{
+        ...theme.components.tile.style,
         ...(mergedProps.concealed
           ? { "background-color": theme.colors.tile.concealed }
           : { "background-color": theme.colors.tile.background }),
         "border-color": theme.colors.tile.border,
-        color: theme.colors.tile.color,
+        color: theme.colors.tile.typography,
       }}
     >
       <Show when={!mergedProps.concealed}>

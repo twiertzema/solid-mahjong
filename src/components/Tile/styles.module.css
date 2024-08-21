@@ -5,7 +5,5 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  border: 8px solid;
-  border-radius: 8px;
   padding: 8px;
 }
