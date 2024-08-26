@@ -1,24 +1,22 @@
-import { type Component, For, onMount, useContext } from "solid-js";
+import { type Component, Match, onMount, Switch, useContext } from "solid-js";
 import { GameStateContext } from "./GameState";
+import MainMenu from "components/MainMenu";
+import { GamePhase } from "GameState/types";
 
 const Game: Component = () => {
-	const { init, state } = useContext(GameStateContext);
+  const { init, state } = useContext(GameStateContext);
 
-	onMount(() => init());
+  onMount(() => init());
 
-	return (
-		<div>
-			<h3>Wall</h3>
-			<ul>
-				<For each={state.wall}>{(tile) => <li>{tile.toString()}</li>}</For>
-			</ul>
+  return (
+    <Switch>
+      <Match when={state.phase === GamePhase.Init}>
+        <MainMenu />
+      </Match>
 
-			<h3>Dead Wall</h3>
-			<ul>
-				<For each={state.deadWall}>{(tile) => <li>{tile.toString()}</li>}</For>
-			</ul>
-		</div>
-	);
+      {/* TODO: Render other phases. */}
+    </Switch>
+  );
 };
 
 export default Game;
