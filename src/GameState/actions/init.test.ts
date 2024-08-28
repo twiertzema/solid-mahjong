@@ -1,8 +1,8 @@
 import { expect, test } from "vitest";
 import createInit from "./init";
-import { GamePhase, type GameState } from "./types";
+import { GamePhase, type GameState } from "../types";
 import { createRoot } from "solid-js";
-import createGameStateStore from "./createGameStateStore";
+import createGameStateStore from "../createGameStateStore";
 
 function run(testFunc: (store: GameState) => void) {
   createRoot((dispose) => {

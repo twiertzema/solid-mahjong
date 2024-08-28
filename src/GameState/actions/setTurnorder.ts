@@ -1,5 +1,5 @@
 import { produce, type SetStoreFunction } from "solid-js/store";
-import type { GameState } from "./types";
+import type { GameState } from "../types";
 import type { MahjongWind } from "constants/tiles";
 import getNextWind from "utils/getNextWind";
 

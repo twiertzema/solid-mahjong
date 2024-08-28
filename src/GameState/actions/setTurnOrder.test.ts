@@ -1,8 +1,8 @@
 import { expect, test } from "vitest";
 import createSetTurnOrder from "./setTurnorder";
-import type { GameState } from "./types";
+import type { GameState } from "../types";
 import { createRoot } from "solid-js";
-import createGameStateStore from "./createGameStateStore";
+import createGameStateStore from "../createGameStateStore";
 import createInit from "./init";
 
 function run(
