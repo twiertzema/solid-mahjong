@@ -1,4 +1,4 @@
-import { createContext, type ParentComponent } from "solid-js";
+import { createContext, useContext, type ParentComponent } from "solid-js";
 import type { GameState } from "./types";
 import { createInit, createSetPhase, createSetTurnOrder } from "./actions";
 import createGameStateStore from "./createGameStateStore";
@@ -40,3 +40,5 @@ export const GameStateProvider: ParentComponent = (props) => {
     </GameStateContext.Provider>
   );
 };
+
+export const useGameState = () => useContext(GameStateContext);

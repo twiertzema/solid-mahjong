@@ -1,17 +1,20 @@
 import type { Component } from "solid-js";
 import styles from "./styles.module.css";
 import Button from "components/Button";
+import { useGameState } from "GameState";
+import { GamePhase } from "GameState/types";
 
 const MainMenu: Component = () => {
+  const { setPhase } = useGameState();
+
   return (
     <div class={styles.container}>
       <h1>Solid Mahjong</h1>
 
       <div class={styles.buttons}>
-        {/* TODO: Transition state to determine phase order. */}
         <Button
           onClick={() => {
-            console.log("start");
+            setPhase(GamePhase.DeterminingTurnOrder);
           }}
         >
           Start
