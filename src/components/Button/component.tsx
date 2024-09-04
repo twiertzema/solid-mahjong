@@ -24,7 +24,7 @@ const Button: ParentComponent<ButtonProps> = (props) => {
       onClick={mergedProps.onClick}
       style={{
         // Make the buttons look like tiles.
-        ...theme.components.tile.style,
+        ...theme.components.tile.large.style,
         "background-color": theme.colors.tile.background,
         color: theme.colors.tile.typography,
       }}

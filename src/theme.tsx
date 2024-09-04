@@ -16,10 +16,33 @@ const DEFAULT_THEME = {
   },
   components: {
     tile: {
-      style: {
-        border: "8px solid",
-        "border-radius": "8px",
-      } as JSX.CSSProperties,
+      small: {
+        style: {
+          height: "20px",
+          width: "15px",
+          "font-size": "0.25em",
+          border: "1px solid",
+          "border-radius": "2px",
+        } as JSX.CSSProperties,
+      },
+      medium: {
+        style: {
+          height: "39px",
+          width: "30px",
+          "font-size": "0.5em",
+          border: "2px solid",
+          "border-radius": "4px",
+        } as JSX.CSSProperties,
+      },
+      large: {
+        style: {
+          height: "78px",
+          width: "60px",
+          "font-size": "1em",
+          border: "6px solid",
+          "border-radius": "8px",
+        } as JSX.CSSProperties,
+      },
     },
   },
 } as const;

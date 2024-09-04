@@ -7,11 +7,12 @@ import { useTheme } from "theme";
 
 export interface TileProps extends JSX.HTMLAttributes<HTMLDivElement> {
   concealed?: boolean;
+  size?: "small" | "medium" | "large";
   tile: MahjongTile;
 }
 
 const Tile: Component<TileProps> = (props) => {
-  const mergedProps = defaultProps({ concealed: false }, props);
+  const mergedProps = defaultProps({ concealed: false, size: "large" }, props);
   const theme = useTheme();
 
   return (
@@ -23,7 +24,7 @@ const Tile: Component<TileProps> = (props) => {
       }}
       onClick={mergedProps.onClick}
       style={{
-        ...theme.components.tile.style,
+        ...theme.components.tile[mergedProps.size || "large"].style,
         ...(mergedProps.concealed
           ? { "background-color": theme.colors.tile.concealed }
           : { "background-color": theme.colors.tile.background }),
@@ -32,8 +33,8 @@ const Tile: Component<TileProps> = (props) => {
       }}
     >
       <Show when={!mergedProps.concealed}>
-        <p>{capitalize(mergedProps.tile.genus)}</p>
-        <p>{capitalize(mergedProps.tile.species)}</p>
+        <span>{capitalize(mergedProps.tile.genus)}</span>
+        <span>{capitalize(mergedProps.tile.species)}</span>
       </Show>
     </div>
   );

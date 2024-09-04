@@ -16,6 +16,7 @@ const meta = {
   },
   argTypes: {
     concealed: { control: "boolean" },
+    size: { control: "select", options: ["small", "medium", "large"] },
   },
 } satisfies Meta<typeof Tile>;
 
