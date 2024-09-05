@@ -22,7 +22,7 @@ const DEFAULT_THEME = {
           width: "15px",
           "font-size": "0.25em",
           border: "1px solid",
-          "border-radius": "2px",
+          "border-radius": "3px",
         } as JSX.CSSProperties,
       },
       medium: {
@@ -31,7 +31,7 @@ const DEFAULT_THEME = {
           width: "30px",
           "font-size": "0.5em",
           border: "2px solid",
-          "border-radius": "4px",
+          "border-radius": "5px",
         } as JSX.CSSProperties,
       },
       large: {
@@ -40,7 +40,7 @@ const DEFAULT_THEME = {
           width: "60px",
           "font-size": "1em",
           border: "6px solid",
-          "border-radius": "8px",
+          "border-radius": "10px",
         } as JSX.CSSProperties,
       },
     },

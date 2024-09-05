@@ -1,3 +1,7 @@
+.container > .segment:first-child > .stack:nth-child(7) {
+  margin-right: 8px;
+}
+
 .segment {
   display: flex;
   flex-direction: row;
@@ -11,5 +15,5 @@
 .stack-tile:nth-child(2) {
   position: absolute;
   top: -2px;
-  left: -2px;
+  left: 0px;
 }

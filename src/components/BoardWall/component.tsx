@@ -1,14 +1,16 @@
 import Tile from "components/Tile";
-import type { MahjongTile } from "constants/tiles";
+import type { MahjongTile, MahjongWind } from "constants/tiles";
 import { chunk } from "lodash";
 import { createMemo, For, type Component } from "solid-js";
 import styles from "./styles.module.css";
 
-const WALL_SEGMENT_WIDTH = 19;
+const WALL_SEGMENT_WIDTH = 17;
 const WALL_SEGMENT_HEIGHT = 2;
 
 export interface BoardWallProps {
   deadWall: MahjongTile[];
+  deadWind?: MahjongWind;
+  perspectiveWind: MahjongWind;
   wall: MahjongTile[];
 }
 
@@ -34,7 +36,7 @@ const BoardWall: Component<BoardWallProps> = (props) => {
   });
 
   return (
-    <div>
+    <div class={styles.container}>
       <For each={segments()}>
         {(segment, segmentIndex) => (
           <div class={styles.segment}>
