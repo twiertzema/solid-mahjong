@@ -1,25 +1,18 @@
-import type { SetStoreFunction } from "solid-js/store";
-import { GamePhase, type GameState } from "../types";
 import { MahjongWinds } from "constants/tiles";
-import arrangeDeck from "utils/arrangeDeck";
+import { cloneDeep } from "lodash";
+import { DEFAULT_STATE } from "GameState/constants";
+import type { GameState } from "GameState/types";
+import type { SetStoreFunction } from "solid-js/store";
 
-export default function createInit(setStore: SetStoreFunction<GameState>) {
+export default function useInit(setStore: SetStoreFunction<GameState>) {
   return () => {
-    const { deadWall, wall } = arrangeDeck();
-
     setStore({
-      currentTurn: {
-        streakCounter: 0,
-        wind: "east",
-      },
-      deadWall,
-      phase: GamePhase.Init,
+      ...cloneDeep(DEFAULT_STATE),
       players: MahjongWinds.map(() => ({
         hand: [],
         score: 25000,
         // Wind will be set when turn order is determined.
       })),
-      wall,
     });
   };
 }

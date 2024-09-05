@@ -17,10 +17,18 @@ function run(testFunc: (store: GameState) => void) {
   });
 }
 
-test("initializes the wall and dead wall appropriately", () => {
+test("initializes the wall appropriately", () => {
   run((store) => {
-    expect(store.wall).toHaveLength(122);
-    expect(store.deadWall).toHaveLength(14);
+    expect(store.wall).toEqual<GameState["wall"]>({
+      east: { deadTileSlots: undefined, tileSlots: expect.any(Array) },
+      south: { deadTileSlots: undefined, tileSlots: expect.any(Array) },
+      west: { deadTileSlots: undefined, tileSlots: expect.any(Array) },
+      north: { deadTileSlots: undefined, tileSlots: expect.any(Array) },
+    });
+    expect(store.wall.east.tileSlots).toHaveLength(0);
+    expect(store.wall.south.tileSlots).toHaveLength(0);
+    expect(store.wall.west.tileSlots).toHaveLength(0);
+    expect(store.wall.north.tileSlots).toHaveLength(0);
   });
 });
 
