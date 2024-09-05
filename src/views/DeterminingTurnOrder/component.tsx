@@ -10,7 +10,7 @@ import styles from "./styles.module.css";
 import { useGameState } from "GameState";
 import { GamePhase } from "GameState/types";
 
-const DeterminineTurnOrder: Component = () => {
+const DeterminingTurnOrder: Component = () => {
   const { setPhase, setTurnOrder } = useGameState();
 
   const windTiles = shuffle([
@@ -36,4 +36,4 @@ const DeterminineTurnOrder: Component = () => {
   );
 };
 
-export default DeterminineTurnOrder;
+export default DeterminingTurnOrder;

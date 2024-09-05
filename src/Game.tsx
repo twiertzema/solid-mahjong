@@ -2,7 +2,7 @@ import { type Component, Match, onMount, Switch, useContext } from "solid-js";
 import { GameStateContext } from "./GameState";
 import MainMenu from "views/MainMenu";
 import { GamePhase } from "GameState/types";
-import DeterminineTurnOrder from "views/DetermineTurnOrder";
+import DeterminingTurnOrder from "views/DeterminingTurnOrder";
 
 const Game: Component = () => {
   const { init, state } = useContext(GameStateContext);
@@ -16,7 +16,7 @@ const Game: Component = () => {
       </Match>
 
       <Match when={state.phase === GamePhase.DeterminingTurnOrder}>
-        <DeterminineTurnOrder />
+        <DeterminingTurnOrder />
       </Match>
 
       {/* TODO: Render other phases. */}
