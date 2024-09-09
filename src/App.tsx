@@ -1,15 +1,15 @@
 import type { Component } from "solid-js";
 
-import { GameStateProvider } from "./GameState";
+import { GameStoreProvider } from "./GameStore";
 import Game from "./Game";
 import { ThemeContextProvider } from "theme";
 
 const App: Component = () => {
   return (
     <ThemeContextProvider>
-      <GameStateProvider>
+      <GameStoreProvider>
         <Game />
-      </GameStateProvider>
+      </GameStoreProvider>
     </ThemeContextProvider>
   );
 };

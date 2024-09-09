@@ -1,9 +1,9 @@
-import { type GameState, GamePhase } from "./types";
+import { type GameStore, GamePhase } from "./types";
 
 export const WALL_SEGMENT_WIDTH = 17;
 export const WALL_SEGMENT_HEIGHT = 2;
 
-export const DEFAULT_STATE: GameState = {
+export const DEFAULT_STATE: GameStore = {
   currentTurn: {
     streakCounter: 0,
     wind: "east",

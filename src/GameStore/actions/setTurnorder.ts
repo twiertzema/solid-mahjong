@@ -1,11 +1,11 @@
-import { produce, type SetStoreFunction } from "solid-js/store";
-import type { GameState } from "../types";
+import { produce } from "solid-js/store";
 import type { MahjongWind } from "constants/tiles";
 import getNextWind from "utils/getNextWind";
+import { useGameStore } from "GameStore";
 
-export default function createSetTurnOrder(
-  setStore: SetStoreFunction<GameState>,
-) {
+export default function useSetTurnOrder() {
+  const { setStore } = useGameStore();
+
   return (wind: MahjongWind) => {
     setStore(
       "players",

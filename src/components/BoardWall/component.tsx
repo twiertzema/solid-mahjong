@@ -2,12 +2,12 @@ import type { MahjongWind } from "constants/tiles";
 import { For, type Component } from "solid-js";
 import styles from "./styles.module.css";
 import BoardWallSegment from "components/BoardWallSegment";
-import type { GameState } from "GameState/types";
+import type { GameStore } from "GameStore/types";
 
 export interface BoardWallProps {
   deadWind?: MahjongWind;
   perspectiveWind: MahjongWind;
-  wall: GameState["wall"];
+  wall: GameStore["wall"];
 }
 
 const BoardWall: Component<BoardWallProps> = (props) => {

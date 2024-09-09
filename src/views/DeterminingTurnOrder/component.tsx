@@ -7,11 +7,12 @@ import {
 import { shuffle } from "lodash";
 import type { Component } from "solid-js";
 import styles from "./styles.module.css";
-import { useGameState } from "GameState";
-import { GamePhase } from "GameState/types";
+import { useSetPhase, useSetTurnOrder } from "GameStore";
+import { GamePhase } from "GameStore/types";
 
 const DeterminingTurnOrder: Component = () => {
-  const { setPhase, setTurnOrder } = useGameState();
+  const setTurnOrder = useSetTurnOrder();
+  const setPhase = useSetPhase();
 
   const windTiles = shuffle([
     new MahjongHonorTile(MahjongHonor.Winds, "east"),

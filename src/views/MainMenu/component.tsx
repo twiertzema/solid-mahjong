@@ -1,11 +1,11 @@
 import type { Component } from "solid-js";
 import styles from "./styles.module.css";
 import Button from "components/Button";
-import { useGameState } from "GameState";
-import { GamePhase } from "GameState/types";
+import { useSetPhase } from "GameStore";
+import { GamePhase } from "GameStore/types";
 
 const MainMenu: Component = () => {
-  const { setPhase } = useGameState();
+  const setPhase = useSetPhase();
 
   return (
     <div class={styles.container}>

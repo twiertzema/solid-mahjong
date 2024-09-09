@@ -1,15 +1,29 @@
 import { expect, test } from "vitest";
-import createInit from "./init";
-import { GamePhase, type GameState } from "../types";
+import useInit from "./init";
+import { GamePhase, type GameStore } from "../types";
 import { createRoot } from "solid-js";
-import createGameStateStore from "../createGameStateStore";
+import createGameStore from "../createGameStateStore";
+import { renderHook } from "@solidjs/testing-library";
+import { GameStoreContext } from "GameStore/context";
 
-function run(testFunc: (store: GameState) => void) {
+function run(testFunc: (store: GameStore) => void) {
   createRoot((dispose) => {
-    const [store, setStore] = createGameStateStore();
+    const [store, setStore] = createGameStore();
 
-    const init = createInit(setStore);
-    init();
+    const { result } = renderHook(useInit, {
+      wrapper: (props) => (
+        <GameStoreContext.Provider
+          value={{
+            store: store,
+            setStore,
+          }}
+        >
+          {props.children}
+        </GameStoreContext.Provider>
+      ),
+    });
+
+    result();
 
     testFunc(store);
 
@@ -19,7 +33,7 @@ function run(testFunc: (store: GameState) => void) {
 
 test("initializes the wall appropriately", () => {
   run((store) => {
-    expect(store.wall).toEqual<GameState["wall"]>({
+    expect(store.wall).toEqual<GameStore["wall"]>({
       east: { deadTileSlots: undefined, tileSlots: expect.any(Array) },
       south: { deadTileSlots: undefined, tileSlots: expect.any(Array) },
       west: { deadTileSlots: undefined, tileSlots: expect.any(Array) },

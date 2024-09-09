@@ -1,5 +1,5 @@
 import Tile from "components/Tile";
-import type { WallSegment } from "GameState/types";
+import type { WallSegment } from "GameStore/types";
 import { For, Show, type Component, type JSX } from "solid-js";
 import styles from "./styles.module.css";
 import { useTheme } from "theme";

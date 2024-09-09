@@ -23,7 +23,7 @@ export interface WallSegment {
   tileSlots: (MahjongTile | undefined)[][];
 }
 
-export interface GameState {
+export interface GameStore {
   currentTurn: {
     // Streak counter in the case that East wins a hand and gets a repeat.
     streakCounter: number;

@@ -1,11 +1,11 @@
 import { type Component, Match, onMount, Switch, useContext } from "solid-js";
-import { GameStateContext } from "./GameState";
+import { GameStoreContext } from "./GameStore";
 import MainMenu from "views/MainMenu";
-import { GamePhase } from "GameState/types";
+import { GamePhase } from "GameStore/types";
 import DeterminingTurnOrder from "views/DeterminingTurnOrder";
 
 const Game: Component = () => {
-  const { init, state } = useContext(GameStateContext);
+  const { init, store: state } = useContext(GameStoreContext);
 
   onMount(() => init());
 

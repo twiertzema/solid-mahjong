@@ -1,10 +1,11 @@
 import { MahjongWinds } from "constants/tiles";
 import { cloneDeep } from "lodash";
-import { DEFAULT_STATE } from "GameState/constants";
-import type { GameState } from "GameState/types";
-import type { SetStoreFunction } from "solid-js/store";
+import { DEFAULT_STATE } from "GameStore/constants";
+import { useGameStore } from "GameStore/context";
 
-export default function useInit(setStore: SetStoreFunction<GameState>) {
+export default function useInit() {
+  const { setStore } = useGameStore();
+
   return () => {
     setStore({
       ...cloneDeep(DEFAULT_STATE),

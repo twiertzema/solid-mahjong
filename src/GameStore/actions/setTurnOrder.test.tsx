@@ -1,23 +1,44 @@
 import { expect, test } from "vitest";
-import createSetTurnOrder from "./setTurnorder";
-import type { GameState } from "../types";
+import type { GameStore } from "../types";
 import { createRoot } from "solid-js";
-import createGameStateStore from "../createGameStateStore";
-import createInit from "./init";
+import createGameStore from "../createGameStateStore";
+import useInit from "./init";
+import { GameStoreContext } from "GameStore/context";
+import { renderHook } from "@solidjs/testing-library";
+import useSetTurnOrder from "./setTurnorder";
 
 function run(
   testFunc: (
-    setTurnOrder: ReturnType<typeof createSetTurnOrder>,
-    store: GameState,
+    setTurnOrder: ReturnType<typeof useSetTurnOrder>,
+    store: GameStore,
   ) => void,
 ) {
   createRoot((dispose) => {
-    const [store, setStore] = createGameStateStore();
+    const [store, setStore] = createGameStore();
+
+    const {
+      result: { init, setTurnOrder },
+    } = renderHook(
+      () => ({
+        init: useInit(),
+        setTurnOrder: useSetTurnOrder(),
+      }),
+      {
+        wrapper: (props) => (
+          <GameStoreContext.Provider
+            value={{
+              store: store,
+              setStore,
+            }}
+          >
+            {props.children}
+          </GameStoreContext.Provider>
+        ),
+      },
+    );
 
     // Initialize the store.
-    createInit(setStore)();
-
-    const setTurnOrder = createSetTurnOrder(setStore);
+    init();
 
     testFunc(setTurnOrder, store);
 
