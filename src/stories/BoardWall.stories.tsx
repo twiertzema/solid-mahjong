@@ -24,11 +24,10 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-const { deadWall, wall } = arrangeDeck();
+const wall = arrangeDeck();
 
 export const BoardWallStory: Story = {
   args: {
-    deadWall,
     wall,
   },
 };

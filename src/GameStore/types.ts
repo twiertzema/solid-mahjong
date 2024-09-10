@@ -23,6 +23,8 @@ export interface WallSegment {
   tileSlots: (MahjongTile | undefined)[][];
 }
 
+export type GameWall = Record<MahjongWind, WallSegment>;
+
 export interface GameStore {
   currentTurn: {
     // Streak counter in the case that East wins a hand and gets a repeat.
@@ -32,5 +34,5 @@ export interface GameStore {
   };
   phase: GamePhase;
   players: PlayerState[];
-  wall: Record<MahjongWind, WallSegment>;
+  wall: GameWall;
 }
