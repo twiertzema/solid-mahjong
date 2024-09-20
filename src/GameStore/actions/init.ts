@@ -1,7 +1,6 @@
 import { MahjongWinds } from "constants/tiles";
 import { cloneDeep } from "lodash";
-import { DEFAULT_STATE } from "GameStore/constants";
-import { useGameStore } from "GameStore/context";
+import { useGameStore, DEFAULT_STATE } from "GameStore";
 
 export default function useInit() {
   const { setStore } = useGameStore();
