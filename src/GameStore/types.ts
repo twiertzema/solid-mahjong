@@ -32,6 +32,7 @@ export interface GameStore {
     // The current wind.
     wind: MahjongWind;
   };
+  perspectiveWind?: MahjongWind;
   phase: GamePhase;
   players: PlayerState[];
   wall: GameWall;

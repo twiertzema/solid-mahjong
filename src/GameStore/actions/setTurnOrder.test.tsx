@@ -89,3 +89,11 @@ test("north", () => {
     expect(store.players[3].wind).toEqual("west");
   });
 });
+
+test("sets the perspective wind", () => {
+  run((setTurnOrder, store) => {
+    setTurnOrder("east");
+
+    expect(store.perspectiveWind).toEqual("east");
+  });
+});

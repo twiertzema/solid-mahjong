@@ -24,5 +24,7 @@ export default function useSetTurnOrder() {
         return currentPlayers;
       }),
     );
+
+    setStore("perspectiveWind", wind);
   };
 }
