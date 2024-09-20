@@ -1,51 +1,41 @@
-import Tile from "components/Tile";
 import type { WallSegment } from "GameStore/types";
 import { For, Show, type Component, type JSX } from "solid-js";
 import styles from "./styles.module.css";
-import { useTheme } from "theme";
+import TileSlot from "./TileSlot";
 
 interface BoardWallSegmentProps extends JSX.HTMLAttributes<HTMLDivElement> {
   wallSegment: WallSegment;
 }
 
-const BoardWallSegment: Component<BoardWallSegmentProps> = (props) => {
-  const theme = useTheme();
+const BoardWallSegment: Component<BoardWallSegmentProps> = (props) => (
+  <div class={props.class} style={props.style}>
+    {/* Wall */}
+    <For each={props.wallSegment.tileSlots}>
+      {(stack) => (
+        <div class={styles.stack}>
+          <For each={stack}>{(tile) => <TileSlot tile={tile} />}</For>
+        </div>
+      )}
+    </For>
 
-  return (
-    <div class={props.class}>
-      <For each={props.wallSegment.tileSlots}>
-        {(stack, stackIndex) => (
-          <div class={styles.stack}>
-            <For each={stack}>
-              {(tile) => (
-                <Show
-                  fallback={
-                    // Occupy the space in the screen for the tile "slot".
-                    <div
-                      style={{
-                        ...theme.components.tile.small,
-                        visibility: "hidden",
-                      }}
-                    />
-                  }
-                  when={tile}
-                >
-                  {(_tile) => (
-                    <Tile
-                      class={styles["stack-tile"]}
-                      concealed
-                      size="small"
-                      tile={_tile()}
-                    />
-                  )}
-                </Show>
-              )}
-            </For>
-          </div>
-        )}
-      </For>
-    </div>
-  );
-};
+    {/* Dead Wall */}
+    <Show when={props.wallSegment.deadTileSlots}>
+      {(deadTileSlots) => (
+        <For each={deadTileSlots()}>
+          {(stack, stackIndex) => (
+            <div
+              class={styles.stack}
+              style={{
+                "margin-left": stackIndex() === 0 ? "8px" : undefined,
+              }}
+            >
+              <For each={stack}>{(tile) => <TileSlot tile={tile} />}</For>
+            </div>
+          )}
+        </For>
+      )}
+    </Show>
+  </div>
+);
 
 export default BoardWallSegment;
