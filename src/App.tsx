@@ -1,7 +1,7 @@
 import type { Component } from "solid-js";
 
-import { GameStoreProvider } from "./GameStore";
-import Game from "./Game";
+import { GameStoreProvider } from "GameStore";
+import Game from "views/Game";
 import { ThemeContextProvider } from "theme";
 
 const App: Component = () => {

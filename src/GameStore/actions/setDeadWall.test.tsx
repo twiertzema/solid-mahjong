@@ -63,16 +63,20 @@ for (const testWind of MahjongWinds) {
           expect(store.wall[wind].tileSlots).toHaveLength(
             WALL_SEGMENT_WIDTH - DEAD_WALL_WIDTH,
           );
-          expect(store.wall[wind].deadTileSlots).toHaveLength(
-            DEAD_WALL_WIDTH,
-          );
+          expect(store.wall[wind].deadTileSlots).toHaveLength(DEAD_WALL_WIDTH);
         } else {
-          expect(store.wall[wind].tileSlots).toHaveLength(
-            WALL_SEGMENT_WIDTH,
-          );
+          expect(store.wall[wind].tileSlots).toHaveLength(WALL_SEGMENT_WIDTH);
           expect(store.wall[wind].deadTileSlots).toBeUndefined();
         }
       }
     });
   });
 }
+
+test("sets the dead wind", () => {
+  run((setDeadWall, store) => {
+    setDeadWall("north");
+
+    expect(store.deadWind).toEqual("north");
+  });
+});

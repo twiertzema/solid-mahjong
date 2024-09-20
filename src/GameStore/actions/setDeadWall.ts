@@ -5,7 +5,8 @@ import { produce } from "solid-js/store";
 export default function useSetDeadWall() {
   const { setStore } = useGameStore();
 
-  return (wind: MahjongWind) =>
+  return (wind: MahjongWind) => {
+    // Divide the wind's wall to create the dead wall.
     setStore(
       produce((store) => {
         store.wall[wind].deadTileSlots = store.wall[wind].tileSlots.splice(
@@ -13,4 +14,8 @@ export default function useSetDeadWall() {
         );
       }),
     );
+
+    // Set the dead wind.
+    setStore("deadWind", wind);
+  };
 }

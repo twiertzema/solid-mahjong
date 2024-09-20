@@ -6,7 +6,7 @@ import type { GameWall } from "GameStore";
 
 export interface BoardWallProps {
   deadWind?: MahjongWind;
-  perspectiveWind: MahjongWind;
+  perspectiveWind?: MahjongWind;
   wall: GameWall;
 }
 
