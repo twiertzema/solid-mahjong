@@ -21,10 +21,10 @@ const Tile: Component<TileProps> = (props) => {
         ...(mergedProps.class && { [mergedProps.class]: true }),
         ...mergedProps.classList,
         [styles.tile]: true,
+        [styles[mergedProps.size]]: true,
       }}
       onClick={mergedProps.onClick}
       style={{
-        ...theme.components.tile[mergedProps.size || "large"].style,
         ...(mergedProps.concealed
           ? { "background-color": theme.colors.tile.concealed }
           : { "background-color": theme.colors.tile.background }),
