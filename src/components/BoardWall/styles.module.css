@@ -1,5 +1,44 @@
+.container {
+  --stack-offset: 2px;
+  --size: calc(
+    2 *
+    var(--tile-small-height) +
+    17 *
+    var(--tile-small-width) +
+    4 *
+    var(--stack-offset)
+  );
+  position: relative;
+  height: var(--size);
+  width: var(--size);
+}
+
 .segment {
+  position: absolute;
   display: flex;
   flex-direction: row;
-  margin-bottom: 16px;
+}
+
+.segment:nth-child(1) {
+  left: var(--tile-small-width);
+  transform: rotate(0.5turn);
+}
+
+.segment:nth-child(2) {
+  top: calc(var(--tile-small-height) + 2 * var(--stack-offset));
+  left: calc(var(--tile-small-height) + 2 * var(--stack-offset));
+  transform: rotate(-0.25turn);
+  transform-origin: top right;
+}
+
+.segment:nth-child(3) {
+  top: calc(var(--size) - var(--tile-small-height));
+  left: var(--tile-small-height);
+}
+
+.segment:nth-child(4) {
+  top: calc(var(--tile-small-height) + 2 * var(--stack-offset));
+  left: calc(var(--tile-small-height) - 2 * var(--stack-offset));
+  transform: rotate(0.25turn);
+  transform-origin: top left;
 }

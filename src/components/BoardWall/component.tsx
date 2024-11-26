@@ -15,8 +15,7 @@ const BoardWall: Component<BoardWallProps> = (props) => {
     // TODO: Rotate based on perspectiveWind and deadWind.
     <div class={styles.container}>
       <For each={Object.values(props.wall)}>
-        {(segment, segmentIndex) => (
-          // TODO: Rotate based on segmentIndex.
+        {(segment) => (
           <BoardWallSegment class={styles.segment} wallSegment={segment} />
         )}
       </For>
