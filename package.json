@@ -13,7 +13,7 @@
   },
   "license": "MIT",
   "devDependencies": {
-    "@biomejs/biome": "1.8.3",
+    "@biomejs/biome": "1.9.4",
     "@chromatic-com/storybook": "^1.6.1",
     "@solidjs/testing-library": "^0.8.9",
     "@storybook/addon-essentials": "^8.2.5",
