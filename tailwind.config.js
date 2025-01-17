@@ -6,6 +6,12 @@ module.exports = {
   ],
   theme: {
     extend: {},
+    colors: {
+      "tile-back": "green",
+      "tile-border": "black",
+      "tile-front": "beige",
+      "tile-text": "black"
+    }
   },
   plugins: [],
 }
