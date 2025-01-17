@@ -1,10 +1,10 @@
+import { fn } from "@storybook/test";
 import TilePicker from "components/TilePicker";
 import { MahjongHonor, MahjongHonorTile } from "constants/tiles";
 import type { Meta, StoryObj } from "storybook-solidjs";
-import { fn } from "@storybook/test";
 
 const meta = {
-  title: "TilePicker",
+  title: "Mahjong/TilePicker",
   component: TilePicker,
   args: {
     concealed: true,

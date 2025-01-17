@@ -8,7 +8,7 @@ import {
 import type { Meta, StoryObj } from "storybook-solidjs";
 
 const meta = {
-  title: "Tile",
+  title: "Mahjong/Tile",
   component: Tile,
   tags: ["autodocs"],
   args: {

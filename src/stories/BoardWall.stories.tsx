@@ -5,7 +5,7 @@ import type { Meta, StoryObj } from "storybook-solidjs";
 import arrangeDeck from "utils/arrangeDeck";
 
 const meta = {
-  title: "BoardWall",
+  title: "Mahjong/BoardWall",
   component: BoardWall,
   argTypes: {
     deadWind: {
