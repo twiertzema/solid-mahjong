@@ -21,6 +21,12 @@
           "level": "warn"
         }
       },
+      "nursery": {
+        "useSortedClasses": {
+          "fix": "unsafe",
+          "level": "info"
+        }
+      },
       "recommended": true
     }
   }

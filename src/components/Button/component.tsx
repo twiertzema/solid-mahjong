@@ -11,7 +11,7 @@ const Button: ParentComponent<ButtonProps> = (props) => {
   return (
     <button
       // Make the buttons look like tiles.
-      class="box-content cursor-pointer bg-tile-front text-tile-text tile-border-lg"
+      class="tile-border-lg box-content cursor-pointer bg-tile-front text-tile-text"
       classList={{
         ...mergedProps.classList,
         "p-2": mergedProps.size === "small",
