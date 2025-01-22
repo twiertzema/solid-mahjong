@@ -1,5 +1,4 @@
 import { type JSX, type ParentComponent, mergeProps } from "solid-js";
-import styles from "./styles.module.css";
 
 export interface ButtonProps
   extends JSX.ButtonHTMLAttributes<HTMLButtonElement> {
@@ -11,16 +10,18 @@ const Button: ParentComponent<ButtonProps> = (props) => {
 
   return (
     <button
+      // Make the buttons look like tiles.
+      class="box-content cursor-pointer bg-tile-front text-tile-text tile-border-lg"
       classList={{
         ...mergedProps.classList,
-        [styles.button]: true,
-        [styles.small]: mergedProps.size === "small",
-        [styles.medium]: mergedProps.size === "medium",
-        [styles.large]: mergedProps.size === "large",
+        "p-2": mergedProps.size === "small",
+        "w-32": mergedProps.size === "medium",
+        "p-4": mergedProps.size === "medium",
+        "w-48": mergedProps.size === "large",
+        "p-6": mergedProps.size === "large",
+        "text-xl": mergedProps.size === "large",
         // TODO: Active styles.
       }}
-      // Make the buttons look like tiles.
-      class="bg-tile-front text-tile-text"
       onClick={mergedProps.onClick}
       type={mergedProps.type}
     >
