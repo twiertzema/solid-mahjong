@@ -1,9 +1,0 @@
-.stack {
-  position: relative;
-}
-
-.stack-tile:nth-child(2) {
-  position: absolute;
-  top: -2px;
-  left: 0px;
-}

@@ -1,16 +1,9 @@
-import type { Preview } from "storybook-solidjs";
-import { ThemeContextProvider } from "../src/theme";
-import "../src/index.css";
 import type { Component } from "solid-js";
+import type { Preview } from "storybook-solidjs";
+import "../src/index.css";
 
 const preview: Preview = {
-  decorators: [
-    (Story: Component) => (
-      <ThemeContextProvider>
-        <Story />
-      </ThemeContextProvider>
-    ),
-  ],
+  decorators: [(Story: Component) => <Story />],
   parameters: {
     controls: {
       matchers: {
