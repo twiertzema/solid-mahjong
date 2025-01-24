@@ -1,7 +1,6 @@
 import Tile from "components/Tile/component";
 import type { MahjongTile } from "constants/tiles";
-import { For, type JSX, type Component, createSignal } from "solid-js";
-import styles from "./styles.module.css";
+import { type Component, For, type JSX, createSignal } from "solid-js";
 
 export interface TilePickerProps extends JSX.HTMLAttributes<HTMLDivElement> {
   concealed?: boolean;
@@ -14,12 +13,13 @@ const TilePicker: Component<TilePickerProps> = (props) => {
   const [selectedTile, setSelectedTile] = createSignal<MahjongTile>();
 
   return (
-    <div class={styles.container}>
+    <div class="flex w-min flex-row gap-4">
       <For each={props.tiles}>
         {(tile) => (
           <Tile
             classList={{
-              [styles["tile--selectable"]]: !props.disabled,
+              "cursor-pointer": !props.disabled,
+              "hover:border-red-500": !props.disabled,
             }}
             concealed={props.concealed && selectedTile() !== tile}
             onClick={() => {
