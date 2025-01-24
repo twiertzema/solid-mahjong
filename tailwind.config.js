@@ -3,6 +3,12 @@ module.exports = {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {
+      colors: {
+        "tile-back": "green",
+        "tile-border": "black",
+        "tile-front": "beige",
+        "tile-text": "black",
+      },
       fontSize: {
         "tile-lg": "1rem",
         "tile-md": "0.5rem",
@@ -32,12 +38,6 @@ module.exports = {
       sm: "1px",
       md: "2px",
       lg: "6px",
-    },
-    colors: {
-      "tile-back": "green",
-      "tile-border": "black",
-      "tile-front": "beige",
-      "tile-text": "black",
     },
   },
   plugins: [],
