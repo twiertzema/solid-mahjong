@@ -1,6 +1,13 @@
 {
-	"image": "mcr.microsoft.com/devcontainers/universal:2",
-	"customizations": {
-		"vscode": { "extensions": ["biomejs.biome", "vitest.explorer"] }
-	}
+  "image": "mcr.microsoft.com/devcontainers/universal:2",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "biomejs.biome",
+        "vitest.explorer",
+        "bradlc.vscode-tailwindcss",
+        "csstools.postcss"
+      ]
+    }
+  }
 }

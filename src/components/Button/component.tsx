@@ -1,6 +1,4 @@
-import { type ParentComponent, type JSX, mergeProps } from "solid-js";
-import { useTheme } from "theme";
-import styles from "./styles.module.css";
+import { type JSX, type ParentComponent, mergeProps } from "solid-js";
 
 export interface ButtonProps
   extends JSX.ButtonHTMLAttributes<HTMLButtonElement> {
@@ -9,24 +7,22 @@ export interface ButtonProps
 
 const Button: ParentComponent<ButtonProps> = (props) => {
   const mergedProps = mergeProps({ size: "medium" }, props);
-  const theme = useTheme();
 
   return (
     <button
+      // Make the buttons look like tiles.
+      class="tile-border-lg box-content cursor-pointer bg-tile-front text-tile-text"
       classList={{
         ...mergedProps.classList,
-        [styles.button]: true,
-        [styles.small]: mergedProps.size === "small",
-        [styles.medium]: mergedProps.size === "medium",
-        [styles.large]: mergedProps.size === "large",
+        "p-2": mergedProps.size === "small",
+        "w-32": mergedProps.size === "medium",
+        "p-4": mergedProps.size === "medium",
+        "w-48": mergedProps.size === "large",
+        "p-6": mergedProps.size === "large",
+        "text-xl": mergedProps.size === "large",
         // TODO: Active styles.
       }}
       onClick={mergedProps.onClick}
-      style={{
-        // Make the buttons look like tiles.
-        "background-color": theme.colors.tile.background,
-        color: theme.colors.tile.typography,
-      }}
       type={mergedProps.type}
     >
       {mergedProps.children}

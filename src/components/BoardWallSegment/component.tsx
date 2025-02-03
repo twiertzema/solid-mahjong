@@ -1,6 +1,5 @@
 import type { WallSegment } from "GameStore/types";
 import { For, Show, type Component, type JSX } from "solid-js";
-import styles from "./styles.module.css";
 import TileSlot from "./TileSlot";
 
 interface BoardWallSegmentProps extends JSX.HTMLAttributes<HTMLDivElement> {
@@ -12,7 +11,7 @@ const BoardWallSegment: Component<BoardWallSegmentProps> = (props) => (
     {/* Wall */}
     <For each={props.wallSegment.tileSlots}>
       {(stack) => (
-        <div class={styles.stack}>
+        <div class="relative">
           <For each={stack}>{(tile) => <TileSlot tile={tile} />}</For>
         </div>
       )}
@@ -24,7 +23,7 @@ const BoardWallSegment: Component<BoardWallSegmentProps> = (props) => (
         <For each={deadTileSlots()}>
           {(stack, stackIndex) => (
             <div
-              class={styles.stack}
+              class="relative"
               style={{
                 "margin-left": stackIndex() === 0 ? "8px" : undefined,
               }}
