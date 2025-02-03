@@ -2,9 +2,9 @@
   --stack-offset: 2px;
   --size: calc(
     2 *
-    var(--tile-small-height) +
+    theme(height.tile-sm) +
     17 *
-    var(--tile-small-width) +
+    theme(width.tile-sm) +
     4 *
     var(--stack-offset)
   );
@@ -20,25 +20,25 @@
 }
 
 .segment:nth-child(1) {
-  left: var(--tile-small-width);
+  left: theme(width.tile-sm);
   transform: rotate(0.5turn);
 }
 
 .segment:nth-child(2) {
-  top: calc(var(--tile-small-height) + 2 * var(--stack-offset));
-  left: calc(var(--tile-small-height) + 2 * var(--stack-offset));
+  top: calc(theme(height.tile-sm) + 2 * var(--stack-offset));
+  left: calc(theme(height.tile-sm) + 2 * var(--stack-offset));
   transform: rotate(-0.25turn);
   transform-origin: top right;
 }
 
 .segment:nth-child(3) {
-  top: calc(var(--size) - var(--tile-small-height));
-  left: var(--tile-small-height);
+  top: calc(var(--size) - theme(height.tile-sm));
+  left: theme(height.tile-sm);
 }
 
 .segment:nth-child(4) {
-  top: calc(var(--tile-small-height) + 2 * var(--stack-offset));
-  left: calc(var(--tile-small-height) - 2 * var(--stack-offset));
+  top: calc(theme(height.tile-sm) + 2 * var(--stack-offset));
+  left: calc(theme(height.tile-sm) - 2 * var(--stack-offset));
   transform: rotate(0.25turn);
   transform-origin: top left;
 }
